@@ -1,8 +1,8 @@
 import React from 'react';
-import Pagination from './Pagination'
+import Pagination from 'components/Pagination'
 
-import { WorksPage } from './Pages'
-import { WorksFilter } from './Filters'
+import { WorksPage } from 'components/Pages'
+import { WorksFilter } from 'components/Filters'
 
 const defaultProps = {
     defaultParams: {

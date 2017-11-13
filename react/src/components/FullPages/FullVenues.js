@@ -1,11 +1,11 @@
 import React from 'react';
-import Thumbnail from './Thumbnail'
+import Thumbnail from 'components/Thumbnail'
 
 import { Link } from 'react-router-dom';
-import { VenuesPage } from './Pages'
-import { VenuesFilter } from './Filters'
+import { VenuesPage } from 'components/Pages'
+import { VenuesFilter } from 'components/Filters'
 
-import './Full.css';
+import 'components/Full.css';
 
 const defaultProps = {
     defaultParams: {

@@ -11,10 +11,10 @@ import Type from './components/Type';
 import Venue from './components/Venue';
 import About from './components/About';
 
-import FullArtists from './components/FullArtists';
-import FullWorks from './components/FullWorks';
-import FullTypes from './components/FullTypes';
-import FullVenues from './components/FullVenues';
+import FullArtists from './components/FullPages/FullArtists';
+import FullWorks from './components/FullPages/FullWorks';
+import FullTypes from './components/FullPages/FullTypes';
+import FullVenues from './components/FullPages/FullVenues';
 
 import SearchResults from './components/SearchResults';
 

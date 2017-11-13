@@ -1,8 +1,8 @@
 import React from 'react';
-import Pagination from './Pagination';
+import Pagination from 'components/Pagination'
 
-import { TypesPage } from './Pages';
-import { TypesFilter } from './Filters';
+import { ArtistsFilter } from 'components/Filters'
+import { ArtistsPage } from 'components/Pages'
 
 const defaultProps = {
     defaultParams: {
@@ -11,18 +11,23 @@ const defaultProps = {
         order_by: "name",
         order: "ascending",
         startswith: "",
-        medium: ""
+        culture: ""
     },
 
     attributes: {
-        name: "Name"
+        name: "Name",
+        birth: "Birth",
+        death: "Death",
+        birthplace: "Birth Place",
+        deathplace: "Death Place",
+        culture: "Culture"
     }
 }
 
-class FullTypes extends React.Component {
+class FullArtists extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state={
             params: props.defaultParams,
             numPages: 0
         };
@@ -62,18 +67,18 @@ class FullTypes extends React.Component {
 
     render() {
         return (
-            <div className="FullTypes">
-                <TypesFilter
+            <div className="FullArtists">
+                <ArtistsFilter
                     {...this.props}
                     applyFilter={this.applyFilter}
                 />
-                <TypesPage
+                <ArtistsPage
                     params={this.state.params}
                     changePage={this.changePage}
                     changeNumPages={this.changeNumPages}
                 />
                 <br/>
-                 <Pagination
+                <Pagination
                     page={this.state.params.page}
                     numPages={this.state.numPages}
                     changePage={this.changePage}
@@ -83,6 +88,6 @@ class FullTypes extends React.Component {
     }
 }
 
-FullTypes.defaultProps = defaultProps
+FullArtists.defaultProps = defaultProps;
 
-export default FullTypes;
+export default FullArtists;

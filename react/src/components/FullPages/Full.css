@@ -1,0 +1,25 @@
+body {
+	text-align: center;
+}
+
+.row {
+	height: 320px;
+	width: 100%;
+}
+
+.col-md-3 {
+	height: 340px;
+	margin: 0px;
+}
+
+.col-md-12 {
+	height: 340px;
+	padding-top: 20px;
+	padding-bottom: 0px;
+
+	vertical-align: middle;
+}
+
+a {
+	color: black;
+}

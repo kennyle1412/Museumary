@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Highlighter from 'react-highlight-words';
 import Thumbnail from './Thumbnail';
 import Pagination from './Pagination';
+
+import { Link } from 'react-router-dom';
 import './Full.css';
 
 const defaultProps = {

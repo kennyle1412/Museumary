@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_PATH=src react-scripts start",
     "build": "react-scripts build; cp -r build dist/.",
     "deploy": "cd dist; gcloud app deploy app.yaml",
     "test": "react-scripts test --env=jsdom",

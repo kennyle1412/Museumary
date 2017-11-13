@@ -1,8 +1,8 @@
 import React from 'react';
-import Pagination from './Pagination'
+import Pagination from 'components/Pagination';
 
-import { ArtistsFilter } from './Filters'
-import { ArtistsPage } from './Pages'
+import { TypesPage } from 'components/Pages';
+import { TypesFilter } from 'components/Filters';
 
 const defaultProps = {
     defaultParams: {
@@ -11,23 +11,18 @@ const defaultProps = {
         order_by: "name",
         order: "ascending",
         startswith: "",
-        culture: ""
+        medium: ""
     },
 
     attributes: {
-        name: "Name",
-        birth: "Birth",
-        death: "Death",
-        birthplace: "Birth Place",
-        deathplace: "Death Place",
-        culture: "Culture"
+        name: "Name"
     }
 }
 
-class FullArtists extends React.Component {
+class FullTypes extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             params: props.defaultParams,
             numPages: 0
         };
@@ -67,18 +62,18 @@ class FullArtists extends React.Component {
 
     render() {
         return (
-            <div className="FullArtists">
-                <ArtistsFilter
+            <div className="FullTypes">
+                <TypesFilter
                     {...this.props}
                     applyFilter={this.applyFilter}
                 />
-                <ArtistsPage
+                <TypesPage
                     params={this.state.params}
                     changePage={this.changePage}
                     changeNumPages={this.changeNumPages}
                 />
                 <br/>
-                <Pagination
+                 <Pagination
                     page={this.state.params.page}
                     numPages={this.state.numPages}
                     changePage={this.changePage}
@@ -88,6 +83,6 @@ class FullArtists extends React.Component {
     }
 }
 
-FullArtists.defaultProps = defaultProps;
+FullTypes.defaultProps = defaultProps
 
-export default FullArtists;
+export default FullTypes;
