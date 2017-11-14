@@ -1,13 +1,8 @@
-/*
-    Export file for all model filters.
-        Artists
-        Types
-        Works
-        Venues
-*/
 
-// Higher order component filter that acts as the base for every other.
-import MasterFilter from './MasterFilter';
+/* Export file for the model filters. */
+
+// Import the MasterFilter container to handle filter logic
+import MasterFilter from 'containers/MasterFilter';
 
 // Import filters from each file
 import ArtistsFilterBase from './ArtistsFilter';

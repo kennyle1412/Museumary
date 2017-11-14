@@ -2,8 +2,13 @@
 Component Filtering. Input fields are exact matches only.
 
 -- MasterFilter.js --
-Higher Order Component that wraps all the base filters with the default options
-and parameters. Gets its props and parameters from the specific model's full page.
+Higher Order Component container that contains the changing logic and holds the
+    parameters that determines what to filter. Builds its state based on what's
+    passed in as the defaultParams.
+
+-- BaseFilter.js --
+Higher Order Component enhancer component that wraps all the base filters with
+    the default options and parameters.
 
 Defaults:
     startswith -- alphabetical filter option
@@ -11,7 +16,6 @@ Defaults:
     order -- ascending or descending order
     apply -- signal that there is a need to apply the filter
     reset -- signal that things need to be reset back to default parameters
-
 
 -- ArtistsFilter.js --
 Filter Artists based on:

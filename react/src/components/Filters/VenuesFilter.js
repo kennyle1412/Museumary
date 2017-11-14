@@ -1,5 +1,5 @@
 /*
-    VenuesFilter.js
+    -- VenuesFilter.js --
         Filter Venues through its unique attributes.
 
     State:
@@ -12,6 +12,7 @@
 
 import React from 'react';
 import SelectFilter from './SelectFilter';
+import BaseFilter from './BaseFilter'
 
 /*
     Define a Country list with its corresponding value
@@ -22,10 +23,10 @@ import SelectFilter from './SelectFilter';
 */
 
 const COUNTRY_LIST = {
-    "None": "All",
-    "USA": "USA",
-    "Finland": "Finland",
-    "New Zealand": "New Zealand"
+    'None': 'All',
+    'USA': 'USA',
+    'Finland': 'Finland',
+    'New Zealand': 'New Zealand'
 }
 
 const VenuesFilter = ({ country, handleChange }) => {
@@ -33,7 +34,7 @@ const VenuesFilter = ({ country, handleChange }) => {
         <span>
             <strong> Country: </strong>
             <SelectFilter
-                name="country"
+                name='country'
                 value={country}
                 attributes={COUNTRY_LIST}
                 handleChange={handleChange} />
@@ -41,4 +42,5 @@ const VenuesFilter = ({ country, handleChange }) => {
     );
 }
 
-export default VenuesFilter;
+// Export the filter enhanced by the BaseFilter
+export default BaseFilter(VenuesFilter);

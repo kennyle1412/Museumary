@@ -1,5 +1,6 @@
 /*
-    Select Filtering for Models:
+    -- SelectFilter.js --
+    Filter based on selected attribute.
         attributes -- in the specific model's full page.
         alphabet -- startswith option - filter by first letter
 */
@@ -24,23 +25,22 @@ const ALPHABET = {
     'W':'W', 'X':'X', 'Y':'Y', 'Z':'Z'
 }
 
+/* Create options based on set attributes */
+const OptionList = ({ attributes }) => {
+    return Object.keys(attributes).map(attr =>
+        <option value={attr} key={attr}>{attributes[attr]}</option>
+    );
+}
+
 const OrderByFilter = ({ name, value, attributes, handleChange }) => {
     attributes = name === 'startswith' ? ALPHABET : attributes;
-
-    // Create options based on set attributes
-    let options = [];
-    for(const attr in attributes) {
-        options.push(
-            <option value={attr} key={attr}>{attributes[attr]}</option>
-        );
-    }
 
     return (
         <select
             name={name}
             value={value}
             onChange={handleChange}>
-            {options}
+            <OptionList attributes={attributes} />
         </select>
     );
 }

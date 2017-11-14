@@ -1,5 +1,5 @@
 /*
-    TypesFilter.js
+    -- TypesFilter.js --
         Filter ArtTypes through its unique attributes.
 
     State:
@@ -11,19 +11,21 @@
 */
 
 import React from 'react';
+import BaseFilter from './BaseFilter'
 
 const TypesFilter = ({ medium, handleChange }) => {
     return (
         <span>
             <strong> Medium: </strong>
             <input
-                type="text"
-                name="medium"
+                type='text'
+                name='medium'
                 value={medium}
                 onChange={handleChange}
             />
         </span>
     );
-}
+};
 
-export default TypesFilter;
+// Export the filter enhanced by the BaseFilter
+export default BaseFilter(TypesFilter);
