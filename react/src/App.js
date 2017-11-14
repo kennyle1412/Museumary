@@ -11,12 +11,13 @@ import Type from './components/Type';
 import Venue from './components/Venue';
 import About from './components/About';
 
-import FullArtists from './components/FullPages/FullArtists';
-import FullWorks from './components/FullPages/FullWorks';
-import FullTypes from './components/FullPages/FullTypes';
-import FullVenues from './components/FullPages/FullVenues';
-
 import SearchResults from './components/SearchResults';
+
+import FullArtists from './containers/FullPages/FullArtists';
+import FullWorks from './containers/FullPages/FullWorks';
+import FullTypes from './containers/FullPages/FullTypes';
+import FullVenues from './containers/FullPages/FullVenues';
+
 
 const App = () => {
     return (
