@@ -1,9 +1,8 @@
 
+
 import React, { Component } from 'react';
 
 import Pagination from 'components/Pagination'
-import WorksParser, { WorksParams } from 'containers/FullPages/WorksParser';
-import { WorksFilter } from 'components/Filters';
 
 var PageLoader = (Parser, Filter) => class extends Component {
     constructor(props) {
@@ -49,4 +48,4 @@ var PageLoader = (Parser, Filter) => class extends Component {
     }
 }
 
-export default PageLoader(WorksParser, WorksFilter);
+export default PageLoader;

@@ -2,9 +2,6 @@
 import React from 'react';
 import Page from 'components/Page';
 
-import PageLoader from 'containers/PageLoader';
-import { WorksFilter } from 'components/Filters';
-
 const WorksParser = ({ items, instance_url }) => {
     const parsedItems = items.map(item => {
         let { venue, artist } = item;
@@ -22,4 +19,4 @@ const WorksParser = ({ items, instance_url }) => {
     return <Page items={parsedItems} />
 }
 
-export default PageLoader(WorksParser, WorksFilter);
+export default WorksParser;

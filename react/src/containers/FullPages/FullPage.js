@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 import Pagination from 'components/Pagination';
 
-import PageLoader from 'containers/PageLoader';
-
-var FullPage = (_defaultProps) => class extends Component {
+var FullPage = (_defaultProps, PageLoader) => class extends Component {
     static defaultProps = _defaultProps;
 
     constructor(props) {
@@ -47,25 +45,4 @@ var FullPage = (_defaultProps) => class extends Component {
     }
 }
 
-const defaults = {
-    defaultParams: {
-        page: 1,
-        entries_per_page: 16,
-        order_by: "name",
-        order: "ascending",
-        startswith: "",
-        art_type: "",
-        medium: "",
-        venue: ""
-    },
-
-    attributes: {
-        name: "Name",
-        date: "Date"
-    },
-
-    base_url: 'http://api.museumary.me/work/?',
-    instance_url: '/works/'
-}
-
-export default FullPage(defaults);
+export default FullPage;
