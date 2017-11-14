@@ -10,12 +10,7 @@ const Page = ({ items }) => {
                     items.map(item =>
                         <Thumbnail
                             key={item.id}
-                            url={item.url}
-                            type={item.type}
-                            name={item.name}
-                            details={item.details}
-                            image_url={item.image_url}
-                            description_id={item.description_id}/>
+                            {...item} />
                     )
                 }
             </div>

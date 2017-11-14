@@ -9,13 +9,17 @@ import {
 } from './DefaultParameters'
 
 import {
-    WorksFilter,
-    ArtistsFilter,
-    VenuesFilter,
-    TypesFilter
-} from 'components/Filters'
+    WorksPage,
+    TypesPage,
+    VenuesPage,
+    ArtistsPage
+} from './Pages'
 
-import WorkLoader from './WorksParser';
+export const FullWorks = FullPage(WorksParams, WorksPage);
+export const FullArtists = FullPage(ArtistsParams, ArtistsPage);
+export const FullVenues = FullPage(VenuesParams, VenuesPage);
 
-export const FullWorks = FullPage(WorksParams, WorkLoader);
+export { default as FullTypes } from './FullTypes';
+
+// export const FullTypes = FullPage(TypesParams, TypesLoader);
 

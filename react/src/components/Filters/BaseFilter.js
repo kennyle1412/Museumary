@@ -1,6 +1,6 @@
 /*
     --BaseFilter.js--
-    Higher order component that acts as an enhancer for the model filters
+    Higher order component that acts as the 'parent' for the model filters
         ArtistsFilter
         WorksFilter
         VenuesFilter
