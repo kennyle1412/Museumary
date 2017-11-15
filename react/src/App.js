@@ -13,12 +13,12 @@ import About from './components/About';
 
 import SearchResults from './components/SearchResults';
 
-// import FullArtists from './containers/FullPages/FullArtists';
-// import FullWorks from './containers/FullPages/FullWorks';
-// import FullTypes from './containers/FullPages/FullTypes';
-// import FullVenues from './containers/FullPages/FullVenues';
-
-import { FullWorks, FullArtists, FullTypes, FullVenues } from 'containers/FullPages'
+import {
+    FullWorks,
+    FullArtists,
+    FullTypes,
+    FullVenues
+} from 'containers/FullPages'
 
 const App = () => {
     return (

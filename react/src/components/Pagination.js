@@ -2,88 +2,58 @@ import React from 'react';
 import './Pagination.css'
 
 const defaultProps = {
-    defaultButtonText: [1, 2, 3, 4, 5],
-    buttonIndexs: [-2, -1, 0, 1, 2]
+    page: 1,
+    numPages: 1,
+    range: 4,
+    half: 2
 };
 
 class Pagination extends React.Component {
     constructor(props) {
         super(props)
-        if(props.numPages && props.numPages < 5) {
-            var arr = []
-            for(var i = 1; i <= props.numPages; i++) {
-                arr.push(i)
-            }
-            this.state = {
-                buttonText: arr
-            }
-        }
-        else {
-            this.state = {
-                buttonText: props.defaultButtonText
-            }
-        }
+        this.state = { buttonText: [] }
     }
 
-    getPage(pageNumber) {
-        let {
-            page,
-            numPages
-        } = this.props
-
-        if(pageNumber !== page && 1 <= pageNumber && pageNumber <= numPages) {
-            this.props.changePage(pageNumber)
-        }
+    componentDidMount() {
+        this.buildButtonText(this.props)
     }
 
     componentWillReceiveProps(nextProps) {
-        if(this.props.page !== nextProps.page) {
+        const { page, numPages } = this.props;
+        const { nextPage, nextNumPages } = nextProps;
+
+        if(page !== nextPage || numPages !== nextNumPages ) {
             this.buildButtonText(nextProps);
         }
     }
 
     buildButtonText(props) {
-        let {
-            page,
-            numPages,
-            defaultButtonText,
-            buttonIndexs
-        } = props
+        const { page, numPages, range, half } = props
 
-        if(numPages < 5) {
-            var arr = []
-            for(var i = 1; i <= numPages; i++) {
-                arr.push(i)
-            }
-            return this.setState({ buttonText: arr });
+        let minPage = page-half, maxPage = page+half;
+
+        if(page < 3) {
+            minPage = 1
+            maxPage = Math.min(minPage+range, numPages)
         }
-        else {
-            if(page <= 3) {
-                return this.setState({ buttonText: defaultButtonText });
-            }
-
-            if(page > numPages - 2) {
-                page = numPages - 2;
-            }
+        else if(page > numPages - 2) {
+            maxPage = numPages;
+            minPage = Math.max(maxPage-range, 1)
         }
 
-        this.setState({ buttonText: buttonIndexs.map(index => page+index) });
+        this.setState({ buttonText: Array.from(new Array(maxPage-minPage + 1), (_, i) => i + minPage) });
     }
 
     render() {
-        const {
-            page,
-            numPages
-        } = this.props
+        const { page, numPages, changePage } = this.props
 
         const buttonText = this.state.buttonText.map(number => {
-            const my_class = number === page ? 'active': ''
-
             return (
-                <button type='button'
-                        className={my_class}
-                        onClick={() => this.getPage(number)}
-                        key={number}>
+                <button
+                    type='button'
+                    className={number === page ? 'active': ''}
+                    onClick={() => changePage(number)}
+                    key={number}>
                     {number}
                 </button>
             );
@@ -91,14 +61,13 @@ class Pagination extends React.Component {
 
         return (
             <ul>
-                <button type="button" onClick={() => this.getPage(1)} key={"<<"}>{"<<"}</button>
-                <button type="button" onClick={() => this.getPage(page - 1)} key={"<"}>{"<"}</button>
+                <button type="button" onClick={() => changePage(1)} key={"<<"}>{"<<"}</button>
+                <button type="button" onClick={() => changePage(page - 1)} key={"<"}>{"<"}</button>
                 {buttonText}
-                <button type="button" onClick={() => this.getPage(page + 1)} key=">" >></button>
-                <button type="button" onClick={() => this.getPage(numPages)} key=">>" >>></button>
+                <button type="button" onClick={() => changePage(page + 1)} key=">" >></button>
+                <button type="button" onClick={() => changePage(numPages)} key=">>" >>></button>
             </ul>
         );
-
     };
 }
 
